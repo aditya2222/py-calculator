@@ -1,9 +1,15 @@
 from tkinter import *
+#bind numbers to the text entry so that when a button is pressed it's value is displayed in the text box!
 def btnClick(numbers):
     global operator
     operator = operator+str(numbers)
     text_input.set(operator)
-
+#clear function for clear button
+def clearDisplay():
+    global operator
+    operator = ""
+    text_input.set("")
+#equa
 #mainwindow conatining the calculator
 cal = Tk()
 cal.title("Calculator")
@@ -32,7 +38,7 @@ Multiplication = Button(cal,padx=16,pady=20,bd=8,text='*',command=lambda:btnClic
 
 #next row of buttons
 btn0 = Button(cal,padx=16,pady=20,bd=8,text='0',command=lambda:btnClick(0),fg='black',bg='powderblue',font=('arial',20,'bold'),).grid(row=4,column=0)
-btnClear = Button(cal,padx=16,pady=20,bd=8,text='C',fg='black',bg='powderblue',font=('arial',20,'bold'),).grid(row=4,column=1)
+btnClear = Button(cal,padx=16,pady=20,bd=8,text='C',command=lambda:clearDisplay(),fg='black',bg='powderblue',font=('arial',20,'bold'),).grid(row=4,column=1)
 btnEquals = Button(cal,padx=16,pady=20,bd=8,text='=',fg='black',bg='powderblue',font=('arial',20,'bold'),).grid(row=4,column=2)
 Division = Button(cal,padx=16,pady=20,bd=8,text='/',command=lambda:btnClick('/'),fg='black',bg='powderblue',font=('arial',20,'bold'),).grid(row=4,column=3)
 
