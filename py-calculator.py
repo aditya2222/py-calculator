@@ -9,7 +9,12 @@ def clearDisplay():
     global operator
     operator = ""
     text_input.set("")
-#equa
+#equal method to evaluate and display the result on the text area
+def btnEqualsInput():
+    global operator
+    sumup=str(eval(operator))
+    text_input.set(sumup)
+    operator=""
 #mainwindow conatining the calculator
 cal = Tk()
 cal.title("Calculator")
@@ -39,7 +44,7 @@ Multiplication = Button(cal,padx=16,pady=20,bd=8,text='*',command=lambda:btnClic
 #next row of buttons
 btn0 = Button(cal,padx=16,pady=20,bd=8,text='0',command=lambda:btnClick(0),fg='black',bg='powderblue',font=('arial',20,'bold'),).grid(row=4,column=0)
 btnClear = Button(cal,padx=16,pady=20,bd=8,text='C',command=lambda:clearDisplay(),fg='black',bg='powderblue',font=('arial',20,'bold'),).grid(row=4,column=1)
-btnEquals = Button(cal,padx=16,pady=20,bd=8,text='=',fg='black',bg='powderblue',font=('arial',20,'bold'),).grid(row=4,column=2)
+btnEquals = Button(cal,padx=16,pady=20,bd=8,text='=',command=lambda:btnEqualsInput(),fg='black',bg='powderblue',font=('arial',20,'bold'),).grid(row=4,column=2)
 Division = Button(cal,padx=16,pady=20,bd=8,text='/',command=lambda:btnClick('/'),fg='black',bg='powderblue',font=('arial',20,'bold'),).grid(row=4,column=3)
 
 
